@@ -4,8 +4,9 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import KeyboardButton, InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from aiogram.utils.callback_data import CallbackData
 from pytube import YouTube
+from config import tkn
 
-API_TOKEN = """Enter your token here"""
+API_TOKEN = tkn
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)

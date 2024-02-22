@@ -31,7 +31,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 choice = InlineKeyboardMarkup(row_width=2)
-download_res = InlineKeyboardButton(text='360p', callback_data=download_callback.new(yt_stream='res_480'))
+download_res = InlineKeyboardButton(text='360p', callback_data=download_callback.new(yt_stream='res_360'))
 choice.insert(download_res)
 download_high_res = InlineKeyboardButton(text='high resolution', callback_data=download_callback.new(yt_stream='high_res'))
 choice.insert(download_high_res)
@@ -59,9 +59,9 @@ async def download_audio_only(call: CallbackQuery):
         remove(f'media/{yt.title}.mp3')
     except Exception as e:
         await call.message.answer(e)
-@dp.callback_query_handler(text_contains='res_480')
+@dp.callback_query_handler(text_contains='res_360')
 async def download_res(call: CallbackQuery):
-    await call.answer(text='res_480')
+    await call.answer(text='res_360')
     try:
         link = call.message.text
         yt = YouTube(link)
